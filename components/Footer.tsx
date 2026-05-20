@@ -40,26 +40,26 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="mt-5 text-sm leading-7 text-white/60">
+            <p className="mt-5 text-sm leading-7 text-white/80">
               Discover trending software deals, SaaS discounts,
               creator tools, digital products, and online opportunities
               curated for entrepreneurs and digital professionals.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/50">
+            <div className="mt-6 flex flex-wrap items-center gap-4">
 
               <a
                 href="https://web.facebook.com/profile.php?id=61589743959335"
                 target="_blank"
                 rel="noreferrer"
-                className="transition hover:text-white"
+                className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
               >
                 Facebook
               </a>
 
               <a
                 href="mailto:support@dealradarng.com"
-                className="transition hover:text-white"
+                className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white hover:text-black"
               >
                 Email
               </a>
@@ -83,7 +83,7 @@ export default function Footer() {
                     <Link
                       key={link.href}
                       href={link.href}
-                      className="text-sm text-white/60 transition hover:text-white"
+                      className="text-sm font-medium text-white/80 transition hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -98,7 +98,7 @@ export default function Footer() {
 
         </div>
 
-        <div className="border-t border-white/10 pt-6 text-center text-sm text-white/40">
+        <div className="border-t border-white/10 pt-6 text-center text-sm text-white/60">
           © {new Date().getFullYear()} Deal Radar NG. All rights reserved.
         </div>
 
