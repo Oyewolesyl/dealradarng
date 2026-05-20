@@ -176,36 +176,42 @@ export const categories = [
     name: "Affiliate Marketing",
     description:
       "Affiliate systems, paid traffic, and digital sales opportunities.",
+    count: "8+ Deals",
   },
 
   {
     name: "Digital Products",
     description:
       "Knowledge monetization, online products, and creator economy systems.",
+    count: "6+ Deals",
   },
 
   {
     name: "Freelancing",
     description:
       "Remote work, virtual assistance, and online freelancing opportunities.",
+    count: "5+ Deals",
   },
 
   {
     name: "Career & Relocation",
     description:
       "Scholarships, relocation systems, and international opportunities.",
+    count: "7+ Deals",
   },
 
   {
     name: "Digital Marketing",
     description:
       "Marketing systems, paid traffic, and digital advertising education.",
+    count: "4+ Deals",
   },
 
   {
     name: "Business & Professional",
     description:
       "Professional skills and advanced business systems.",
+    count: "3+ Deals",
   },
 
 ];
