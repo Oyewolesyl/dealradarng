@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { Deal } from "@/types/deal";
+
+type Deal = {
+  title: string;
+  description: string;
+  category: string;
+  price: string;
+  image: string;
+  href?: string;
+};
 
 type Props = {
   deal: Deal;
