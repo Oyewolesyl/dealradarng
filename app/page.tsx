@@ -7,7 +7,9 @@ import { categories, deals, features } from "@/data/deals";
 export default function Home() {
   return (
     <main>
+
       <section className="relative overflow-hidden bg-black px-5 py-16 text-white sm:px-6 sm:py-20 md:py-28">
+
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#10B98133,transparent_35%),radial-gradient(circle_at_bottom_right,#ffffff14,transparent_30%)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl">
@@ -51,6 +53,34 @@ export default function Home() {
 
       </section>
 
+      <section className="bg-black px-5 pb-10 text-white sm:px-6">
+
+        <div className="mx-auto max-w-7xl">
+
+          <p className="mb-5 text-center text-[11px] font-bold uppercase tracking-[0.25em] text-white/35 sm:text-xs">
+            Trusted Digital Platforms
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-6 py-6 sm:gap-10">
+
+            <img
+              src="/partners/selar.png"
+              alt="Selar"
+              className="h-9 w-auto object-contain opacity-70 transition duration-200 hover:opacity-100 sm:h-10"
+            />
+
+            <img
+              src="/partners/expertnaire.png"
+              alt="Expertnaire"
+              className="h-7 w-auto object-contain opacity-70 transition duration-200 hover:opacity-100 sm:h-8"
+            />
+
+          </div>
+
+        </div>
+
+      </section>
+
       <section className="bg-[#050507] px-5 py-14 text-white sm:px-6 sm:py-20">
 
         <div className="mx-auto max-w-7xl">
@@ -58,6 +88,7 @@ export default function Home() {
           <div className="mb-8 flex flex-col gap-4 sm:mb-10 md:flex-row md:items-end md:justify-between">
 
             <div>
+
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
                 Featured
               </p>
@@ -65,6 +96,7 @@ export default function Home() {
               <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-6xl">
                 Featured Deals
               </h2>
+
             </div>
 
             <Link
@@ -140,8 +172,7 @@ export default function Home() {
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 sm:text-lg">
             Start with curated offers from Expertnaire,
-            PartnerStack, and Selar. More categories
-            will be added as the platform grows.
+            Selar, and remote skill opportunities.
           </p>
 
           <Link
@@ -154,6 +185,7 @@ export default function Home() {
         </div>
 
       </section>
+
     </main>
   );
 }
