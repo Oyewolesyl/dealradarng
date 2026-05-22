@@ -2,9 +2,11 @@ import Link from "next/link";
 import CategoryCard from "@/components/CategoryCard";
 import DealCard from "@/components/DealCard";
 import FeatureCard from "@/components/FeatureCard";
-import { categories, deals, features, goals } from "@/data/deals";
+import { categories, deals, featuredDeals, features, goals } from "@/data/deals";
 
 export default function Home() {
+  const visibleFeatured = featuredDeals.length >= 4 ? featuredDeals : deals.slice(0, 4);
+
   return (
     <main>
       <section className="relative overflow-hidden bg-black px-5 py-16 text-white sm:px-6 sm:py-20 md:py-28">
@@ -53,13 +55,13 @@ export default function Home() {
             <img
               src="/partners/selar.png"
               alt="Selar"
-              className="h-9 w-auto object-contain opacity-70 transition duration-200 hover:opacity-100 sm:h-10"
+              className="h-9 w-auto object-contain opacity-75 transition duration-200 hover:opacity-100 sm:h-10"
             />
 
             <img
               src="/partners/expertnaire.png"
               alt="Expertnaire"
-              className="h-7 w-auto object-contain opacity-70 transition duration-200 hover:opacity-100 sm:h-8"
+              className="h-7 w-auto object-contain opacity-75 transition duration-200 hover:opacity-100 sm:h-8"
             />
           </div>
         </div>
@@ -70,15 +72,15 @@ export default function Home() {
           <div className="mb-8 flex flex-col gap-4 sm:mb-10 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
-                Opportunities
+                Featured
               </p>
 
               <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-6xl">
-                All Featured Products
+                Featured Opportunities
               </h2>
 
-              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/60 sm:text-base">
-                Browse all 12 selected programs across Expertnaire and Selar.
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/65 sm:text-base">
+                Start with these high-priority programs, then browse the full marketplace.
               </p>
             </div>
 
@@ -86,12 +88,12 @@ export default function Home() {
               href="/deals"
               className="inline-flex w-fit rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black"
             >
-              View Deals Page
+              View All 12 Products
             </Link>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {deals.map((deal) => (
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+            {visibleFeatured.map((deal) => (
               <DealCard key={deal.id} deal={deal} />
             ))}
           </div>
@@ -152,7 +154,7 @@ export default function Home() {
               >
                 <h3 className="text-xl font-black text-white">{goal.title}</h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/60">
+                <p className="mt-3 text-sm leading-6 text-white/70">
                   {goal.description}
                 </p>
 
@@ -172,13 +174,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="bg-[#050507] px-5 py-14 text-white sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8 md:p-14">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+            <div>
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
+                Before you buy
+              </p>
+
+              <h2 className="text-3xl font-black leading-tight sm:text-4xl md:text-6xl">
+                We organize the options. You still choose what fits your goal.
+              </h2>
+
+              <p className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg">
+                Deal Radar NG helps you compare digital products by outcome, category and platform. Always read the product page carefully before paying.
+              </p>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-[#10B981]/20 bg-[#10B981]/10 p-5">
+              <h3 className="text-xl font-black text-white">Buyer checklist</h3>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-white/75">
+                <li>Confirm the product matches your current goal.</li>
+                <li>Check the official product page before purchase.</li>
+                <li>Avoid expecting guaranteed income or guaranteed relocation outcomes.</li>
+                <li>Use the product only if you are ready to learn and implement.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-black px-5 py-14 text-white sm:px-6 sm:py-20">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8 md:p-14">
           <h2 className="max-w-3xl text-3xl font-black leading-tight sm:text-4xl md:text-6xl">
             Ready to explore practical digital opportunities?
           </h2>
 
-          <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg">
             Start with curated programs across affiliate marketing, freelancing, relocation, publishing, ghostwriting and professional growth.
           </p>
 
