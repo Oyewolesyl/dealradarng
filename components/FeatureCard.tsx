@@ -2,10 +2,24 @@ import type { Feature } from "@/types/deal";
 
 export default function FeatureCard({ feature }: { feature: Feature }) {
   return (
-    <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 sm:p-6">
-      <div className="mb-5 h-10 w-10 rounded-2xl bg-[#10B981]" />
-      <h3 className="text-xl font-black text-white">{feature.title}</h3>
-      <p className="mt-3 text-sm leading-6 text-white/60">{feature.description}</p>
+    <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-1 hover:border-[#10B981]/40 hover:bg-white/[0.06]">
+      <div className="h-56 overflow-hidden">
+        <img
+          src={feature.image}
+          alt={feature.title}
+          className="h-full w-full object-cover transition duration-500 hover:scale-105"
+        />
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-2xl font-black text-white">
+          {feature.title}
+        </h3>
+
+        <p className="mt-4 text-sm leading-7 text-white/70">
+          {feature.description}
+        </p>
+      </div>
     </div>
   );
 }

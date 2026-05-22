@@ -3,11 +3,25 @@ import type { Category } from "@/types/deal";
 
 export default function CategoryCard({ category }: { category: Category }) {
   return (
-    <Link href="/categories" className="block rounded-[1.75rem] border border-black/10 bg-white p-5 text-black transition hover:-translate-y-1 hover:shadow-2xl sm:p-6">
-      <div className="mb-5 h-11 w-11 rounded-2xl bg-black sm:h-12 sm:w-12" />
-      <h3 className="text-xl font-black leading-tight">{category.name}</h3>
-      <p className="mt-3 text-sm leading-6 text-black/60">{category.description}</p>
-      <p className="mt-5 text-sm font-bold text-[#059669]">{category.count}</p>
+    <Link
+      href="/deals"
+      className="group block h-full rounded-[1.75rem] border border-black/10 bg-white p-6 text-black shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#10B981] hover:shadow-xl"
+    >
+      <p className="mb-4 inline-flex rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-[#047857]">
+        {category.count}
+      </p>
+
+      <h3 className="text-2xl font-black leading-tight text-black">
+        {category.name}
+      </h3>
+
+      <p className="mt-3 text-sm leading-6 text-neutral-700">
+        {category.description}
+      </p>
+
+      <div className="mt-6 inline-flex items-center rounded-full border border-black/10 bg-black px-4 py-2 text-sm font-black text-white transition duration-200 group-hover:border-[#10B981] group-hover:bg-[#10B981] group-hover:text-black">
+        Explore category →
+      </div>
     </Link>
   );
 }
