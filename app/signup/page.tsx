@@ -1,20 +1,125 @@
-import Link from "next/link";
+"use client";
 
-export default function Page() {
+import Image from "next/image";
+import Link from "next/link";
+import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
+import { apiFetch, saveSession } from "@/lib/api";
+
+type AuthResponse = {
+  token: string;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+    role: "USER" | "ADMIN";
+  };
+};
+
+export default function SignUpPage() {
+  const router = useRouter();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setError("");
+    setLoading(true);
+
+    const form = new FormData(event.currentTarget);
+
+    const result = await apiFetch<AuthResponse>("/api/auth/signup", {
+      method: "POST",
+      body: JSON.stringify({
+        name: String(form.get("name") || ""),
+        email: String(form.get("email") || ""),
+        password: String(form.get("password") || ""),
+      }),
+    });
+
+    setLoading(false);
+
+    if (result.error || !result.data) {
+      setError(result.error || "Sign up failed.");
+      return;
+    }
+
+    saveSession(result.data.token, result.data.user);
+    router.push("/account");
+  }
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-black px-5 py-12 text-white">
-      <div className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 sm:p-8">
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">Create Account</p>
-        <h1 className="text-4xl font-black sm:text-5xl">Sign Up</h1>
-        <p className="mt-4 leading-7 text-white/60">Frontend-only sign up page. No backend or authentication is connected yet.</p>
-        <div className="mt-8 space-y-4">
-          <input type="text" placeholder="Full name" className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 outline-none" />
-          <input type="email" placeholder="Email address" className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 outline-none" />
-          <input type="password" placeholder="Password" className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 outline-none" />
-          <Link href="/deals" className="flex w-full items-center justify-center rounded-2xl bg-[#10B981] px-5 py-4 font-black text-black transition hover:bg-white">Create Account</Link>
-        </div>
-        <p className="mt-6 text-center text-sm text-white/50">Already have an account? <Link href="/signin" className="text-[#10B981]">Sign In</Link></p>
-      </div>
+      <section className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/40 sm:p-8">
+        <Link href="/" className="mb-8 flex justify-center">
+          <Image
+            src="/brand/main-logo-white.svg"
+            alt="Deal Radar NG"
+            width={220}
+            height={90}
+            priority
+            className="h-auto w-48"
+          />
+        </Link>
+
+        <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
+          Create account
+        </p>
+
+        <h1 className="text-4xl font-black sm:text-5xl">Sign up</h1>
+
+        <p className="mt-4 leading-7 text-white/60">
+          Create your account to save deals, receive useful updates and access member features.
+        </p>
+
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+          <input
+            name="name"
+            type="text"
+            required
+            placeholder="Full name"
+            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
+          />
+
+          <input
+            name="email"
+            type="email"
+            required
+            placeholder="Email address"
+            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
+          />
+
+          <input
+            name="password"
+            type="password"
+            required
+            minLength={8}
+            placeholder="Password, minimum 8 characters"
+            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
+          />
+
+          {error ? (
+            <p className="rounded-2xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm font-semibold text-red-100">
+              {error}
+            </p>
+          ) : null}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="flex w-full items-center justify-center rounded-2xl bg-[#10B981] px-5 py-4 font-black text-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {loading ? "Creating account..." : "Create account"}
+          </button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-white/50">
+          Already have an account?{" "}
+          <Link href="/signin" className="font-bold text-[#10B981]">
+            Sign in
+          </Link>
+        </p>
+      </section>
     </main>
   );
 }

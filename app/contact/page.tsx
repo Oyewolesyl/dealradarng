@@ -1,79 +1,29 @@
-import Image from "next/image";
-import Link from "next/link";
+import PageHero from "@/components/PageHero";
 
-export default function HomePage() {
+export default function ContactPage() {
   return (
-    <main className="bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
+      <PageHero
+        label="Contact"
+        title="Contact Deal Radar NG"
+        description="Questions about a listed product, partnership or correction can be sent directly to the Deal Radar NG support email."
+      />
 
-      <section className="relative overflow-hidden px-5 pb-24 pt-16 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-16">
+        <div className="grid gap-5 md:grid-cols-2">
+          <a href="mailto:support@dealradarng.com" className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition hover:border-[#10B981]">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">Email</p>
+            <h2 className="mt-3 text-2xl font-black">support@dealradarng.com</h2>
+            <p className="mt-3 text-sm leading-6 text-white/65">Use this for product listing questions, affiliate partnership issues, corrections and general support.</p>
+          </a>
 
-        <div className="mx-auto flex max-w-7xl flex-col items-center text-center">
-
-          <div className="relative h-28 w-64 overflow-hidden sm:h-36 sm:w-80 md:h-44 md:w-[28rem]">
-            <Image
-              src="/brand/main-logo-white.svg"
-              alt="Deal Radar NG"
-              fill
-              priority
-              className="object-contain"
-            />
-          </div>
-
-          <div className="mt-8 inline-flex items-center rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-4 py-2 text-sm font-semibold text-[#10B981]">
-            Discover Trending Digital Deals
-          </div>
-
-          <h1 className="mt-8 max-w-5xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            The Home of Software Deals, SaaS Discounts, and Digital Opportunities
-          </h1>
-
-          <p className="mt-6 max-w-3xl text-base leading-8 text-white/75 sm:text-lg">
-            Explore curated software deals, creator tools, AI platforms,
-            business resources, and online opportunities built for modern entrepreneurs.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-
-            <Link
-              href="/deals"
-              className="rounded-full bg-[#10B981] px-7 py-3 text-sm font-black text-black transition duration-200 hover:scale-[1.02] hover:bg-white"
-            >
-              Explore Deals
-            </Link>
-
-            <Link
-              href="/software"
-              className="rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-bold text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black"
-            >
-              Browse Software
-            </Link>
-
-          </div>
-
-          <div className="mt-14 flex flex-wrap items-center justify-center gap-4">
-
-            <a
-              href="https://web.facebook.com/profile.php?id=61589743959335"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black"
-            >
-              Facebook
-            </a>
-
-            <a
-              href="mailto:support@dealradarng.com"
-              className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black"
-            >
-              Email
-            </a>
-
-          </div>
-
+          <a href="https://web.facebook.com/profile.php?id=61589743959335" target="_blank" rel="noreferrer" className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition hover:border-[#10B981]">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">Social</p>
+            <h2 className="mt-3 text-2xl font-black">Deal Radar NG on Facebook</h2>
+            <p className="mt-3 text-sm leading-6 text-white/65">Follow updates, featured opportunities and new product drops.</p>
+          </a>
         </div>
-
       </section>
-
     </main>
   );
 }

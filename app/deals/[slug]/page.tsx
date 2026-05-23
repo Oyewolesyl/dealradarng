@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import DealCard from "@/components/DealCard";
 import ProductCTA from "@/components/ProductCTA";
+import ProductGallery from "@/components/ProductGallery";
 import { deals, getDealBySlug, getRelatedDeals } from "@/data/deals";
 
 export function generateStaticParams() {
@@ -149,6 +150,8 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
           </div>
         </div>
       </section>
+
+      <ProductGallery deal={deal} />
 
       {relatedDeals.length > 0 ? (
         <section className="bg-[#050507] px-5 py-14 sm:px-6 sm:py-20">
