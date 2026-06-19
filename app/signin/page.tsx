@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { apiFetch, saveSession } from "@/lib/api";
+import BrandLogo from "@/components/BrandLogo";
 
 type AuthResponse = {
   token: string;
@@ -51,14 +51,9 @@ export default function SignInPage() {
     <main className="flex min-h-screen items-center justify-center bg-black px-5 py-12 text-white">
       <section className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/40 sm:p-8">
         <Link href="/" className="mb-8 flex justify-center">
-          <Image
-            src="/brand/main-logo-white.svg"
-            alt="Deal Radar NG"
-            width={220}
-            height={90}
-            priority
-            className="h-auto w-48"
-          />
+          <span className="relative block h-20 w-48">
+            <BrandLogo priority className="object-contain object-center" />
+          </span>
         </Link>
 
         <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">

@@ -1,9 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import BrandLogo from "@/components/BrandLogo";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const links = [
   { href: "/deals", label: "Deals" },
@@ -29,13 +30,7 @@ export default function Navbar() {
           className="flex shrink-0 items-center"
         >
           <div className="relative overflow-hidden h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-52 lg:h-28 lg:w-64">
-            <Image
-              src="/brand/main-logo-white.svg"
-              alt="Deal Radar NG"
-              fill
-              priority
-              className="object-cover object-left scale-110"
-            />
+            <BrandLogo priority className="object-cover object-left scale-110" />
           </div>
         </Link>
 
@@ -52,6 +47,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
 
           <Link
             href="/signin"
@@ -69,14 +65,18 @@ export default function Navbar() {
 
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((value) => !value)}
-          aria-label="Toggle navigation menu"
-          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-label="Toggle navigation menu"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
 
       </div>
 

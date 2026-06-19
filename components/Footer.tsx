@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import BrandLogo from "@/components/BrandLogo";
 
 const footerLinks = {
   Explore: [
@@ -30,13 +30,7 @@ export default function Footer() {
 
             <Link href="/" className="inline-flex items-center">
               <div className="relative overflow-hidden h-20 w-52 sm:h-24 sm:w-64 md:h-28 md:w-72">
-                <Image
-                  src="/brand/main-logo-white.svg"
-                  alt="Deal Radar NG"
-                  fill
-                  priority
-                  className="object-contain object-left scale-110"
-                />
+                <BrandLogo priority className="object-contain object-left scale-110" />
               </div>
             </Link>
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import BrandLogo from "@/components/BrandLogo";
 
 export default function PageHero({
   label,
@@ -16,13 +16,7 @@ export default function PageHero({
       <div className="mx-auto max-w-7xl">
         {showLogo ? (
           <div className="relative mb-6 h-16 w-44 overflow-hidden sm:h-20 sm:w-56">
-            <Image
-              src="/brand/main-logo-white.svg"
-              alt="Deal Radar NG"
-              fill
-              priority
-              className="object-contain object-left"
-            />
+            <BrandLogo priority />
           </div>
         ) : (
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
