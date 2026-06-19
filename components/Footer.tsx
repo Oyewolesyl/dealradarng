@@ -1,85 +1,84 @@
 import Link from "next/link";
+import { Mail, Radar } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 
-const footerLinks = {
-  Explore: [
-    { href: "/deals", label: "Deals" },
-    { href: "/software", label: "Software" },
-    { href: "/tools", label: "Tools" },
-  ],
-  Company: [
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
-    { href: "/reviews", label: "Reviews" },
-  ],
-  Legal: [
-    { href: "/privacy", label: "Privacy Policy" },
-    { href: "/terms", label: "Terms of Service" },
-  ],
-};
+const columns = [
+  {
+    title: "Shop",
+    links: [
+      { href: "/deals", label: "Marketplace" },
+      { href: "/categories", label: "Categories" },
+      { href: "/software", label: "Software" },
+      { href: "/tools", label: "Tools" },
+    ],
+  },
+  {
+    title: "Trust",
+    links: [
+      { href: "/about", label: "About" },
+      { href: "/reviews", label: "Reviews" },
+      { href: "/contact", label: "Contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms" },
+    ],
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black">
-      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-5 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div className="brand-panel p-5 sm:p-6">
-            <Link href="/" className="inline-flex items-center">
-              <div className="relative h-14 w-44 overflow-visible sm:h-16 sm:w-56">
-                <BrandLogo priority />
+    <footer className="border-t theme-line">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
+        <div className="brand-band surface p-6 sm:p-8">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-start">
+            <div>
+              <Link href="/" className="inline-flex items-center gap-3">
+                <div className="brand-logo-mark">
+                  <BrandLogo className="object-contain object-center" />
+                </div>
+                <div>
+                  <p className="text-2xl font-black theme-text">Deal Radar NG</p>
+                  <p className="mt-1 text-xs font-black uppercase tracking-[0.2em] text-[#f45a1d]">Digital product discovery</p>
+                </div>
+              </Link>
+              <p className="mt-5 max-w-xl text-sm leading-7 theme-muted">
+                A buyer-first marketplace for comparing digital courses, remote work resources, relocation guides and professional growth products before visiting the official product page.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a href="mailto:support@dealradarng.com" className="cta-primary px-4 py-3 text-sm">
+                  <Mail size={16} />
+                  Email support
+                </a>
+                <Link href="/deals" className="cta-secondary px-4 py-3 text-sm">
+                  <Radar size={16} />
+                  Start scanning
+                </Link>
               </div>
-            </Link>
+            </div>
 
-            <p className="mt-5 max-w-xl text-sm leading-7 text-white/72">
-              Deal Radar NG helps visitors scan digital products, compare buyer fit,
-              and move to official product pages with better context.
-            </p>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3">
-              <a
-                href="https://web.facebook.com/profile.php?id=61589743959335"
-                target="_blank"
-                rel="noreferrer"
-                className="brand-secondary-button px-4 py-2 text-sm font-black"
-              >
-                Facebook
-              </a>
-
-              <a
-                href="mailto:support@dealradarng.com"
-                className="brand-button px-4 py-2 text-sm font-black"
-              >
-                Email
-              </a>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {columns.map((column) => (
+                <div key={column.title} className="surface-tight p-5">
+                  <h3 className="text-xs font-black uppercase tracking-[0.2em] text-[#f45a1d]">{column.title}</h3>
+                  <div className="mt-4 grid gap-3">
+                    {column.links.map((link) => (
+                      <Link key={link.href} href={link.href} className="text-sm font-bold theme-muted transition hover:text-[#f45a1d]">
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
-            {Object.entries(footerLinks).map(([title, links]) => (
-              <div key={title} className="brand-card p-5">
-                <h3 className="mb-4 text-sm font-black uppercase tracking-[0.18em] text-[#ffb199]">
-                  {title}
-                </h3>
-
-                <div className="flex flex-col gap-3">
-                  {links.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="text-sm font-bold text-white/72 transition hover:text-white"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-
-        <div className="border-t border-white/10 pt-6 text-center text-sm font-semibold text-white/50">
-          © {new Date().getFullYear()} Deal Radar NG. All rights reserved.
-        </div>
+        <p className="pt-6 text-center text-sm font-bold theme-muted">
+          Copyright {new Date().getFullYear()} Deal Radar NG. All rights reserved.
+        </p>
       </div>
     </footer>
   );

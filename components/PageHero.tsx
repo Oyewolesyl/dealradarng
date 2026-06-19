@@ -12,27 +12,19 @@ export default function PageHero({
   const showLogo = label.toLowerCase().includes("deal radar");
 
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-black px-5 py-14 text-white sm:px-6 sm:py-18 md:py-20">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(244,90,29,0.16),transparent_32%),linear-gradient(45deg,transparent_0,transparent_46%,rgba(255,255,255,0.06)_47%,transparent_48%)]" />
-
-      <div className="relative mx-auto max-w-7xl">
+    <section className="radar-hero px-5 py-14 sm:px-6 lg:py-20">
+      <div className="relative z-10 mx-auto max-w-7xl">
         {showLogo ? (
-          <div className="relative mb-6 h-14 w-44 overflow-visible sm:h-16 sm:w-56">
-            <BrandLogo priority />
+          <div className="brand-logo-mark mb-6">
+            <BrandLogo priority className="object-contain object-center" />
           </div>
         ) : (
-          <p className="brand-pill mb-4 inline-flex px-3 py-1 text-xs font-black uppercase tracking-[0.22em] sm:text-sm">
-            {label}
-          </p>
+          <p className="tag px-3 py-1 text-xs">{label}</p>
         )}
-
-        <h1 className="max-w-4xl text-4xl font-black leading-[0.98] tracking-tight sm:text-5xl md:text-7xl">
+        <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
           {title}
         </h1>
-
-        <p className="mt-5 max-w-2xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
-          {description}
-        </p>
+        <p className="mt-5 max-w-3xl text-lg leading-8 theme-muted">{description}</p>
       </div>
     </section>
   );

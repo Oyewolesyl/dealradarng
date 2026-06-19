@@ -1,6 +1,6 @@
 "use client";
 
-import { SlidersHorizontal } from "lucide-react";
+import { Search, SlidersHorizontal } from "lucide-react";
 import { useMemo, useState } from "react";
 import DealCard from "@/components/DealCard";
 import type { Deal } from "@/types/deal";
@@ -22,86 +22,74 @@ export default function DealFilters({
     const search = query.trim().toLowerCase();
 
     return deals.filter((deal) => {
-      const matchesSearch =
-        !search ||
-        deal.title.toLowerCase().includes(search) ||
-        deal.description.toLowerCase().includes(search) ||
-        deal.outcome.toLowerCase().includes(search) ||
-        deal.category.toLowerCase().includes(search) ||
-        deal.bestFor.join(" ").toLowerCase().includes(search);
+      const searchable = [
+        deal.title,
+        deal.description,
+        deal.outcome,
+        deal.category,
+        deal.platform,
+        deal.bestFor.join(" "),
+      ].join(" ").toLowerCase();
 
-      const matchesCategory = category === "All" || deal.category === category;
-      const matchesPlatform = platform === "All" || deal.platform === platform;
-
-      return matchesSearch && matchesCategory && matchesPlatform;
+      return (
+        (!search || searchable.includes(search)) &&
+        (category === "All" || deal.category === category) &&
+        (platform === "All" || deal.platform === platform)
+      );
     });
   }, [deals, query, category, platform]);
 
   return (
     <div>
-      <div className="shop-card mb-8 p-4 sm:p-5">
-        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div className="surface mb-8 p-4 sm:p-5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.22em] text-[#ffb199]">
-              <SlidersHorizontal size={16} />
-              Shop scanner
+            <p className="tag px-3 py-1 text-[10px]">
+              <SlidersHorizontal size={14} />
+              Radar controls
             </p>
-            <h2 className="mt-2 text-2xl font-black text-white">
-              Find the right product faster.
-            </h2>
+            <h2 className="mt-4 text-3xl font-black theme-text">Search like a buyer, not a browser.</h2>
           </div>
-
-          <p className="text-sm font-semibold text-white/55">
-            Showing {filteredDeals.length} of {deals.length} products.
+          <p className="text-sm font-bold theme-muted">
+            {filteredDeals.length} of {deals.length} products visible
           </p>
         </div>
 
-        <div className="grid gap-3 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search ghostwriting, relocation, freelancing..."
-            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition placeholder:text-white/35 focus:border-[#f45a1d]"
-          />
+        <div className="mt-5 grid gap-3 lg:grid-cols-[1.2fr_0.75fr_0.75fr]">
+          <label className="input-shell flex items-center gap-3 px-4 py-3">
+            <Search size={18} className="text-[#f45a1d]" />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Search ghostwriting, relocation, Upwork, KDP..."
+              className="w-full bg-transparent text-sm font-bold outline-none placeholder:text-neutral-500"
+            />
+          </label>
 
-          <select
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition focus:border-[#f45a1d]"
-          >
+          <select value={category} onChange={(event) => setCategory(event.target.value)} className="input-shell px-4 py-3 text-sm font-bold outline-none">
             {categories.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
+              <option key={item} value={item}>{item}</option>
             ))}
           </select>
 
-          <select
-            value={platform}
-            onChange={(event) => setPlatform(event.target.value)}
-            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition focus:border-[#f45a1d]"
-          >
+          <select value={platform} onChange={(event) => setPlatform(event.target.value)} className="input-shell px-4 py-3 text-sm font-bold outline-none">
             {platforms.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
+              <option key={item} value={item}>{item}</option>
             ))}
           </select>
         </div>
       </div>
 
-      {filteredDeals.length > 0 ? (
+      {filteredDeals.length ? (
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {filteredDeals.map((deal) => (
             <DealCard key={deal.id} deal={deal} />
           ))}
         </div>
       ) : (
-        <div className="brand-panel p-8 text-center">
-          <h2 className="text-2xl font-black text-white">No matching opportunities found.</h2>
-          <p className="mt-3 text-sm leading-6 text-white/60">
-            Try another keyword, category, or platform.
-          </p>
+        <div className="surface p-8 text-center">
+          <h2 className="text-2xl font-black theme-text">No matching products yet.</h2>
+          <p className="mt-3 text-sm theme-muted">Try another goal, category or platform.</p>
         </div>
       )}
     </div>

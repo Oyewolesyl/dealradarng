@@ -4,50 +4,44 @@ import { dealCategories, deals, platforms } from "@/data/deals";
 
 export default function DealsPage() {
   return (
-    <main className="shop-shell text-white">
-      <section className="px-5 py-12 sm:px-6 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1fr_0.48fr] lg:items-end">
+    <main className="radar-page">
+      <section className="radar-hero px-5 py-14 sm:px-6 lg:py-20">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">
           <div>
-            <p className="brand-pill mb-5 inline-flex items-center gap-2 px-3 py-1 text-xs font-black uppercase tracking-[0.2em] sm:text-sm">
-              <ShoppingBag size={16} />
-              Deal Radar shop
+            <p className="tag px-3 py-1 text-xs">
+              <ShoppingBag size={15} />
+              Marketplace
             </p>
-
-            <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl">
-              Browse vetted digital products by goal, platform and fit.
+            <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
+              Scan the full product floor.
             </h1>
-
-            <p className="mt-5 max-w-3xl text-base leading-8 text-white/65 sm:text-lg">
-              Search selected Expertnaire and Selar offers across affiliate marketing, freelancing, relocation, publishing, marketing and professional growth.
+            <p className="mt-5 max-w-3xl text-lg leading-8 theme-muted">
+              Search, filter and compare curated digital products by outcome, category and marketplace.
             </p>
           </div>
 
-          <div className="shop-card grid gap-3 p-4 sm:grid-cols-2 lg:grid-cols-1">
-            <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <Search size={20} className="text-[#ffb199]" />
+          <div className="surface grid gap-3 p-4">
+            <div className="surface-tight flex items-center gap-3 p-4">
+              <Search size={20} className="text-[#f45a1d]" />
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-white/45">Search</p>
-                <p className="mt-1 text-sm font-bold text-white">Name, skill, outcome</p>
+                <p className="text-xs font-black uppercase tracking-[0.16em] faint">Search</p>
+                <p className="mt-1 text-sm font-black theme-text">Skills, outcomes, names</p>
               </div>
             </div>
-            <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-4">
-              <Filter size={20} className="text-[#ffb199]" />
+            <div className="surface-tight flex items-center gap-3 p-4">
+              <Filter size={20} className="text-[#18c77a]" />
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.16em] text-white/45">Filter</p>
-                <p className="mt-1 text-sm font-bold text-white">Category and platform</p>
+                <p className="text-xs font-black uppercase tracking-[0.16em] faint">Filter</p>
+                <p className="mt-1 text-sm font-black theme-text">Category and platform</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-5 pb-20 sm:px-6">
+      <section className="px-5 py-12 sm:px-6 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <DealFilters
-            deals={deals}
-            categories={[...dealCategories]}
-            platforms={[...platforms]}
-          />
+          <DealFilters deals={deals} categories={[...dealCategories]} platforms={[...platforms]} />
         </div>
       </section>
     </main>
