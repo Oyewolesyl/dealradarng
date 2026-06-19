@@ -3,7 +3,7 @@ import type { Deal } from "@/types/deal";
 
 export default function DealCard({ deal }: { deal: Deal }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.045] transition duration-300 hover:-translate-y-1 hover:border-[#10B981]/50 hover:bg-white/[0.075]">
+    <article className="brand-card group flex h-full flex-col overflow-hidden">
       <Link href={`/deals/${deal.slug}`} className="block">
         <div className="relative flex h-56 items-center justify-center overflow-hidden bg-white p-4">
           <img
@@ -12,7 +12,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
             className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
           />
 
-          <div className="absolute left-4 top-4 rounded-full border border-black/10 bg-black/80 px-3 py-1 text-xs font-black text-white backdrop-blur">
+          <div className="absolute left-4 top-4 rounded-md border border-black/10 bg-black/80 px-3 py-1 text-xs font-black text-white backdrop-blur">
             {deal.platform}
           </div>
         </div>
@@ -20,7 +20,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
 
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="mb-4 flex flex-wrap items-center gap-2">
-          <span className="inline-flex w-fit rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-3 py-1 text-xs font-bold text-[#7CF4B8]">
+          <span className="brand-pill inline-flex w-fit px-3 py-1 text-xs font-black">
             {deal.badge}
           </span>
 
@@ -30,7 +30,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
         </div>
 
         <Link href={`/deals/${deal.slug}`}>
-          <h3 className="text-xl font-black leading-tight text-white transition group-hover:text-[#7CF4B8] sm:text-2xl">
+          <h3 className="text-xl font-black leading-tight text-white transition group-hover:text-[#ffb199] sm:text-2xl">
             {deal.title}
           </h3>
         </Link>
@@ -43,7 +43,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
           {deal.bestFor.slice(0, 3).map((item) => (
             <span
               key={item}
-              className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-bold text-white/65"
+              className="rounded-md border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-bold text-white/65"
             >
               {item}
             </span>
@@ -63,7 +63,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
 
           <Link
             href={`/deals/${deal.slug}`}
-            className="inline-flex shrink-0 items-center justify-center rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-bold text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black"
+            className="brand-secondary-button inline-flex shrink-0 items-center justify-center px-4 py-2.5 text-sm font-black"
           >
             Details →
           </Link>

@@ -38,19 +38,34 @@ export default function DealFilters({
 
   return (
     <div>
-      <div className="mb-8 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5">
+      <div className="brand-panel mb-8 p-4 sm:p-5">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ffb199]">
+              Deal scanner
+            </p>
+            <h2 className="mt-2 text-2xl font-black text-white">
+              Filter by what you need now.
+            </h2>
+          </div>
+
+          <p className="text-sm font-semibold text-white/55">
+            Showing {filteredDeals.length} of {deals.length} opportunities.
+          </p>
+        </div>
+
         <div className="grid gap-3 lg:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search ghostwriting, relocation, freelancing..."
-            className="w-full rounded-full border border-white/10 bg-black px-5 py-3 text-sm font-semibold text-white outline-none transition placeholder:text-white/35 focus:border-[#10B981]"
+            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition placeholder:text-white/35 focus:border-[#f45a1d]"
           />
 
           <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="w-full rounded-full border border-white/10 bg-black px-5 py-3 text-sm font-semibold text-white outline-none transition focus:border-[#10B981]"
+            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition focus:border-[#f45a1d]"
           >
             {categories.map((item) => (
               <option key={item} value={item}>
@@ -62,7 +77,7 @@ export default function DealFilters({
           <select
             value={platform}
             onChange={(event) => setPlatform(event.target.value)}
-            className="w-full rounded-full border border-white/10 bg-black px-5 py-3 text-sm font-semibold text-white outline-none transition focus:border-[#10B981]"
+            className="brand-field w-full px-5 py-3 text-sm font-semibold outline-none transition focus:border-[#f45a1d]"
           >
             {platforms.map((item) => (
               <option key={item} value={item}>
@@ -71,10 +86,6 @@ export default function DealFilters({
             ))}
           </select>
         </div>
-
-        <p className="mt-4 text-sm font-semibold text-white/55">
-          Showing {filteredDeals.length} of {deals.length} opportunities.
-        </p>
       </div>
 
       {filteredDeals.length > 0 ? (
@@ -84,7 +95,7 @@ export default function DealFilters({
           ))}
         </div>
       ) : (
-        <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-8 text-center">
+        <div className="brand-panel p-8 text-center">
           <h2 className="text-2xl font-black text-white">No matching opportunities found.</h2>
           <p className="mt-3 text-sm leading-6 text-white/60">
             Try another keyword, category, or platform.

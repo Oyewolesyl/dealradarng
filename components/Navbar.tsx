@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -20,26 +20,26 @@ export default function Navbar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-xl">
 
-      <div className="flex w-full items-center justify-between px-3 py-2">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
 
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex shrink-0 items-center"
+          className="flex shrink-0 items-center rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f45a1d]/60"
         >
-          <div className="relative overflow-hidden h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-52 lg:h-28 lg:w-64">
-            <BrandLogo priority className="object-cover object-left scale-110" />
+          <div className="relative h-12 w-36 overflow-visible sm:h-14 sm:w-44 lg:h-16 lg:w-52">
+            <BrandLogo priority className="object-contain object-left" />
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-white/70 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-lg border border-white/10 bg-white/[0.035] p-1 text-sm font-bold text-white/70 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition duration-200 hover:text-white"
+              className="rounded-md px-4 py-2 transition duration-200 hover:bg-white/10 hover:text-white"
             >
               {link.label}
             </Link>
@@ -51,15 +51,16 @@ export default function Navbar() {
 
           <Link
             href="/signin"
-            className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-bold text-white transition duration-200 hover:bg-white/10"
+            className="rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-bold text-white transition duration-200 hover:border-[#f45a1d]/50 hover:bg-white/10"
           >
             Sign In
           </Link>
 
           <Link
             href="/signup"
-            className="rounded-full bg-[#10B981] px-5 py-2.5 text-sm font-black text-black transition duration-200 hover:bg-white"
+            className="brand-button inline-flex items-center gap-2 px-4 py-2.5 text-sm font-black"
           >
+            <Search size={16} />
             Sign Up
           </Link>
 
@@ -72,7 +73,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setOpen((value) => !value)}
             aria-label="Toggle navigation menu"
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-white transition hover:border-[#f45a1d]/50 hover:bg-white/10"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -101,7 +102,7 @@ export default function Navbar() {
               <Link
                 href="/signin"
                 onClick={closeMenu}
-                className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold text-white"
+                className="flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm font-bold text-white"
               >
                 Sign In
               </Link>
@@ -109,7 +110,7 @@ export default function Navbar() {
               <Link
                 href="/signup"
                 onClick={closeMenu}
-                className="flex items-center justify-center rounded-2xl bg-[#10B981] px-4 py-3 text-sm font-black text-black"
+                className="brand-button flex items-center justify-center px-4 py-3 text-sm font-black"
               >
                 Sign Up
               </Link>

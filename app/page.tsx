@@ -9,37 +9,70 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative overflow-hidden bg-black px-5 py-16 text-white sm:px-6 sm:py-20 md:py-28">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#10B98133,transparent_35%),radial-gradient(circle_at_bottom_right,#ffffff14,transparent_30%)]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="max-w-5xl">
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
-              Digital opportunity discovery
+      <section className="brand-hero overflow-hidden px-5 py-14 text-white sm:px-6 sm:py-16 md:py-20">
+        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-140px)] max-w-7xl gap-8 lg:grid-cols-[1.08fr_0.72fr] lg:items-center">
+          <div className="max-w-4xl">
+            <p className="brand-pill mb-5 inline-flex px-3 py-1 text-xs font-black uppercase tracking-[0.22em] sm:text-sm">
+              Find the best deals, faster
             </p>
 
-            <h1 className="max-w-5xl text-4xl font-black leading-[0.98] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
-              Discover Digital Skills, Remote Work Opportunities and Online Income Resources.
+            <h1 className="max-w-5xl text-4xl font-black leading-[0.96] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl">
+              Radar-picked digital deals for skills, work and online income.
             </h1>
 
             <p className="mt-6 max-w-3xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-              Explore carefully selected programs from Expertnaire and Selar designed to help you build valuable skills, career opportunities, digital businesses and online income systems.
+              Deal Radar NG scans the noisy marketplace and organizes practical products from Expertnaire and Selar by outcome, platform and buyer fit, so you can compare faster before you click.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 href="/deals"
-                className="inline-flex items-center justify-center rounded-full border border-[#10B981] bg-[#10B981] px-7 py-4 text-sm font-black text-black transition duration-200 hover:bg-white sm:text-base"
+                className="brand-button inline-flex items-center justify-center px-7 py-4 text-sm font-black sm:text-base"
               >
-                Explore Opportunities
+                Start Scanning Deals
               </Link>
 
               <Link
                 href="/categories"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-black text-white transition duration-200 hover:border-[#10B981] hover:bg-[#10B981] hover:text-black sm:text-base"
+                className="brand-secondary-button inline-flex items-center justify-center px-7 py-4 text-sm font-black sm:text-base"
               >
                 Browse Categories
               </Link>
+            </div>
+
+            <div className="mt-8 grid max-w-2xl grid-cols-3 gap-2 sm:gap-3">
+              {[
+                ["12", "Curated products"],
+                ["2", "Trusted platforms"],
+                ["Fast", "Goal-based filters"],
+              ].map(([value, label]) => (
+                <div key={label} className="brand-panel p-3 sm:p-4">
+                  <p className="text-2xl font-black text-white sm:text-3xl">{value}</p>
+                  <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.14em] text-white/55">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="brand-panel hidden p-5 lg:block">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ffb199]">
+              Deal Radar workflow
+            </p>
+            <div className="mt-5 space-y-3">
+              {[
+                "Search by goal, category or platform.",
+                "Compare buyer fit before opening checkout.",
+                "Use product visuals and notes to decide faster.",
+              ].map((item, index) => (
+                <div key={item} className="flex gap-4 border border-white/10 bg-black/25 p-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#f45a1d] text-sm font-black text-white">
+                    {index + 1}
+                  </span>
+                  <p className="text-sm font-bold leading-6 text-white/78">{item}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -51,7 +84,7 @@ export default function Home() {
             Featuring carefully selected opportunities from Nigeria&apos;s leading digital product marketplaces
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-8 rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-6 py-6 sm:gap-10">
+          <div className="brand-panel flex flex-wrap items-center justify-center gap-8 px-6 py-6 sm:gap-10">
             <img
               src="/partners/selar.png"
               alt="Selar"

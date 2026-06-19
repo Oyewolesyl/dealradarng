@@ -2,7 +2,7 @@ import type { Feature } from "@/types/deal";
 
 export default function FeatureCard({ feature }: { feature: Feature }) {
   return (
-    <div className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-1 hover:border-[#10B981]/40 hover:bg-white/[0.06]">
+    <div className="brand-card overflow-hidden">
       <div className="flex h-56 items-center justify-center overflow-hidden bg-white/5">
         <img
           src={feature.image}
