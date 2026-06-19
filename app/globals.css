@@ -123,6 +123,120 @@ html[data-theme="light"] .brand-field {
   background: rgba(255, 255, 255, 0.86);
 }
 
+.radar-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.radar-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -2;
+  background:
+    linear-gradient(115deg, transparent 0 36%, rgba(244, 90, 29, 0.16) 37%, transparent 39%),
+    linear-gradient(45deg, transparent 0 58%, rgba(0, 135, 78, 0.14) 59%, transparent 61%),
+    radial-gradient(circle at 18% 20%, rgba(244, 90, 29, 0.22), transparent 28%),
+    radial-gradient(circle at 86% 70%, rgba(0, 135, 78, 0.18), transparent 30%);
+}
+
+.radar-shell::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 82%);
+}
+
+html[data-theme="light"] .radar-shell::after {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+}
+
+.deal-tape {
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  gap: 1.25rem;
+  animation: deal-tape 28s linear infinite;
+}
+
+.deal-tape span {
+  white-space: nowrap;
+  color: var(--foreground);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.deal-tape span::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.75rem;
+  border-radius: 2px;
+  background: var(--brand-orange);
+  box-shadow: 0 0 0 4px rgba(244, 90, 29, 0.14);
+}
+
+@keyframes deal-tape {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scan-card {
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(0, 135, 78, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.signal-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  background: var(--brand-green);
+  box-shadow: 0 0 0 5px rgba(0, 135, 78, 0.16), 0 0 24px rgba(0, 135, 78, 0.45);
+}
+
+html[data-theme="light"] [class*="text-[#10B981]"],
+html[data-theme="light"] [class*="text-[#7CF4B8]"] {
+  color: #b9360b !important;
+}
+
+[class*="text-[#10B981]"],
+[class*="text-[#7CF4B8]"] {
+  color: #ffb199 !important;
+}
+
+[class*="bg-[#10B981]"] {
+  background-color: var(--brand-orange) !important;
+}
+
+[class*="border-[#10B981]"] {
+  border-color: rgba(244, 90, 29, 0.55) !important;
+}
+
+[class*="rounded-[2rem]"],
+[class*="rounded-[1.75rem]"],
+[class*="rounded-[1.5rem]"],
+[class*="rounded-2xl"] {
+  border-radius: 8px !important;
+}
+
 html[data-theme="light"] [class~="bg-black"],
 html[data-theme="light"] [class~="bg-[#050507]"] {
   background-color: var(--background) !important;

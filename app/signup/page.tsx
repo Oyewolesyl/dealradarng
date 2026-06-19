@@ -49,68 +49,43 @@ export default function SignUpPage() {
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-black px-5 py-12 text-white">
-      <section className="w-full max-w-md rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/40 sm:p-8">
+    <main className="radar-shell flex min-h-screen items-center justify-center bg-black px-5 py-12 text-white">
+      <section className="brand-panel w-full max-w-md p-6 sm:p-8">
         <Link href="/" className="mb-8 flex justify-center">
-          <span className="relative block h-20 w-48">
+          <span className="relative block h-16 w-48">
             <BrandLogo priority className="object-contain object-center" />
           </span>
         </Link>
 
-        <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981] sm:text-sm">
+        <p className="brand-pill mb-4 inline-flex px-3 py-1 text-xs font-black uppercase tracking-[0.22em]">
           Create account
         </p>
 
         <h1 className="text-4xl font-black sm:text-5xl">Sign up</h1>
 
-        <p className="mt-4 leading-7 text-white/60">
-          Create your account to save deals, receive useful updates and access member features.
+        <p className="mt-4 font-semibold leading-7 text-white/60">
+          Save deals, receive updates and access member features as Deal Radar grows.
         </p>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
-          <input
-            name="name"
-            type="text"
-            required
-            placeholder="Full name"
-            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
-          />
-
-          <input
-            name="email"
-            type="email"
-            required
-            placeholder="Email address"
-            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
-          />
-
-          <input
-            name="password"
-            type="password"
-            required
-            minLength={8}
-            placeholder="Password, minimum 8 characters"
-            className="w-full rounded-2xl border border-white/10 bg-black/40 px-5 py-4 text-white outline-none transition focus:border-[#10B981]"
-          />
+          <input name="name" type="text" required placeholder="Full name" className="brand-field w-full px-5 py-4 text-white outline-none transition focus:border-[#f45a1d]" />
+          <input name="email" type="email" required placeholder="Email address" className="brand-field w-full px-5 py-4 text-white outline-none transition focus:border-[#f45a1d]" />
+          <input name="password" type="password" required minLength={8} placeholder="Password, minimum 8 characters" className="brand-field w-full px-5 py-4 text-white outline-none transition focus:border-[#f45a1d]" />
 
           {error ? (
-            <p className="rounded-2xl border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm font-semibold text-red-100">
+            <p className="border border-red-400/30 bg-red-400/10 px-4 py-3 text-sm font-semibold text-red-100">
               {error}
             </p>
           ) : null}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="flex w-full items-center justify-center rounded-2xl bg-[#10B981] px-5 py-4 font-black text-black transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60"
-          >
+          <button type="submit" disabled={loading} className="brand-button flex w-full items-center justify-center px-5 py-4 font-black disabled:cursor-not-allowed disabled:opacity-60">
             {loading ? "Creating account..." : "Create account"}
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-white/50">
           Already have an account?{" "}
-          <Link href="/signin" className="font-bold text-[#10B981]">
+          <Link href="/signin" className="font-black text-[#ffb199]">
             Sign in
           </Link>
         </p>

@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="brand-hero overflow-hidden px-5 py-14 text-white sm:px-6 sm:py-16 md:py-20">
+      <section className="brand-hero radar-shell overflow-hidden px-5 py-14 text-white sm:px-6 sm:py-16 md:py-20">
         <div className="relative z-10 mx-auto grid min-h-[calc(100vh-140px)] max-w-7xl gap-8 lg:grid-cols-[1.08fr_0.72fr] lg:items-center">
           <div className="max-w-4xl">
             <p className="brand-pill mb-5 inline-flex px-3 py-1 text-xs font-black uppercase tracking-[0.22em] sm:text-sm">
@@ -57,16 +57,19 @@ export default function Home() {
           </div>
 
           <div className="brand-panel hidden p-5 lg:block">
-            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ffb199]">
-              Deal Radar workflow
-            </p>
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#ffb199]">
+                Live scan mode
+              </p>
+              <span className="signal-dot" />
+            </div>
             <div className="mt-5 space-y-3">
               {[
-                "Search by goal, category or platform.",
-                "Compare buyer fit before opening checkout.",
-                "Use product visuals and notes to decide faster.",
+                "Pick your goal: earn, move, publish, freelance.",
+                "Compare buyer fit, caution notes and platform.",
+                "Open only the offers that pass your radar.",
               ].map((item, index) => (
-                <div key={item} className="flex gap-4 border border-white/10 bg-black/25 p-4">
+                <div key={item} className="scan-card flex gap-4 p-4">
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#f45a1d] text-sm font-black text-white">
                     {index + 1}
                   </span>
@@ -75,6 +78,27 @@ export default function Home() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="overflow-hidden border-y border-white/10 bg-[#f45a1d] py-3 text-black">
+        <div className="deal-tape">
+          {[
+            "Find the best deals faster",
+            "Expertnaire picks",
+            "Selar products",
+            "Remote work resources",
+            "Digital skill programs",
+            "Buyer-fit notes",
+            "Find the best deals faster",
+            "Expertnaire picks",
+            "Selar products",
+            "Remote work resources",
+            "Digital skill programs",
+            "Buyer-fit notes",
+          ].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
         </div>
       </section>
 

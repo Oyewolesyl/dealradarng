@@ -29,28 +29,25 @@ export default function AdminUsersPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black px-5 py-20 text-white sm:px-6">
+    <main className="radar-shell min-h-screen bg-black px-5 py-20 text-white sm:px-6">
       <section className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-[#10B981]">
+            <p className="brand-pill mb-4 inline-flex px-3 py-1 text-xs font-black uppercase tracking-[0.22em]">
               Admin
             </p>
             <h1 className="text-4xl font-black sm:text-6xl">User management</h1>
-            <p className="mt-5 max-w-2xl leading-8 text-white/65">
+            <p className="mt-5 max-w-2xl font-semibold leading-8 text-white/65">
               View registered Deal Radar NG users and confirm who has admin access.
             </p>
           </div>
 
-          <Link
-            href="/account"
-            className="rounded-full border border-white/15 bg-white/5 px-6 py-3 font-black text-white"
-          >
+          <Link href="/account" className="brand-secondary-button px-6 py-3 font-black">
             Back to account
           </Link>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04]">
+        <div className="brand-panel mt-10 overflow-hidden">
           {message ? (
             <p className="p-6 text-white/70">{message}</p>
           ) : (
@@ -70,7 +67,7 @@ export default function AdminUsersPage() {
                       <td className="px-6 py-4 font-bold">{user.name}</td>
                       <td className="px-6 py-4 text-white/70">{user.email}</td>
                       <td className="px-6 py-4">
-                        <span className="rounded-full border border-[#10B981]/25 bg-[#10B981]/10 px-3 py-1 text-xs font-black text-[#7CF4B8]">
+                        <span className="brand-pill px-3 py-1 text-xs font-black">
                           {user.role}
                         </span>
                       </td>
