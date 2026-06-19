@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import type { SignOptions } from "jsonwebtoken";
 import type { NextFunction, Request, Response } from "express";
 import { env } from "./env.js";
 import { prisma } from "./prisma.js";
@@ -18,7 +19,9 @@ declare global {
 }
 
 export function signToken(user: AuthUser) {
-  return jwt.sign(user, env.jwtSecret, { expiresIn: env.jwtExpiresIn });
+  return jwt.sign(user, env.jwtSecret, {
+    expiresIn: env.jwtExpiresIn as SignOptions["expiresIn"],
+  });
 }
 
 export async function requireAuth(req: Request, res: Response, next: NextFunction) {
