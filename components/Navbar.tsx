@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -20,21 +20,26 @@ export default function Navbar() {
   const closeMenu = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/90 backdrop-blur-xl">
-
+    <header className="site-header sticky top-0 z-50">
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
 
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex shrink-0 items-center rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f45a1d]/60"
+          className="flex shrink-0 items-center gap-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f45a1d]/60"
         >
-          <div className="relative h-12 w-36 overflow-visible sm:h-14 sm:w-44 lg:h-16 lg:w-52">
-            <BrandLogo priority className="object-contain object-left" />
+          <div className="brand-lockup-icon">
+            <BrandLogo priority className="object-contain object-center" />
+          </div>
+          <div className="hidden leading-none sm:block">
+            <p className="text-lg font-black tracking-tight text-white">Deal Radar</p>
+            <p className="mt-1 text-[10px] font-black uppercase tracking-[0.22em] text-[#ffb199]">
+              NG Marketplace
+            </p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-lg border border-white/10 bg-white/[0.035] p-1 text-sm font-bold text-white/70 lg:flex">
+        <nav className="hidden items-center gap-1 rounded-lg border border-white/10 bg-white/[0.035] p-1 text-sm font-black text-white/70 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -60,8 +65,8 @@ export default function Navbar() {
             href="/signup"
             className="brand-button inline-flex items-center gap-2 px-4 py-2.5 text-sm font-black"
           >
-            <Search size={16} />
-            Sign Up
+            <ShoppingBag size={16} />
+            Join
           </Link>
 
         </div>
@@ -82,7 +87,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 bg-black lg:hidden">
+        <div className="site-header border-t border-white/10 lg:hidden">
 
           <div className="flex flex-col gap-1 px-4 py-4">
 

@@ -5,15 +5,19 @@ export default function DealCard({ deal }: { deal: Deal }) {
   return (
     <article className="brand-card group flex h-full flex-col overflow-hidden">
       <Link href={`/deals/${deal.slug}`} className="block">
-        <div className="relative flex h-56 items-center justify-center overflow-hidden bg-white p-4">
+        <div className="product-media relative flex h-56 items-center justify-center overflow-hidden p-4">
           <img
             src={deal.image}
             alt={deal.title}
             className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.03]"
           />
 
-          <div className="absolute left-4 top-4 rounded-md border border-black/10 bg-black/80 px-3 py-1 text-xs font-black text-white backdrop-blur">
+          <div className="absolute left-4 top-4 rounded-md border border-black/10 bg-black/85 px-3 py-1 text-xs font-black text-white backdrop-blur">
             {deal.platform}
+          </div>
+
+          <div className="absolute bottom-4 right-4 rounded-md border border-black/10 bg-white/95 px-3 py-1 text-xs font-black text-black shadow-sm">
+            {deal.priceNote}
           </div>
         </div>
       </Link>
@@ -53,11 +57,11 @@ export default function DealCard({ deal }: { deal: Deal }) {
         <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-5">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/40">
-              Price
+              Best for
             </p>
 
             <p className="mt-1 text-sm font-black text-white">
-              {deal.priceNote}
+              {deal.bestFor[0]}
             </p>
           </div>
 
@@ -65,7 +69,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
             href={`/deals/${deal.slug}`}
             className="brand-secondary-button inline-flex shrink-0 items-center justify-center px-4 py-2.5 text-sm font-black"
           >
-            Details →
+            View deal
           </Link>
         </div>
       </div>
