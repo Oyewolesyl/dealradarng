@@ -38,7 +38,7 @@ export default function ProductGallery({ deal }: { deal: Deal }) {
 
         <div className="grid gap-5 lg:grid-cols-[1fr_320px] lg:items-start">
           <div className="surface relative overflow-hidden bg-white p-3">
-            <div className="product-media flex min-h-[360px] items-center justify-center rounded-[18px] sm:min-h-[520px]">
+            <div className="product-media flex min-h-[360px] items-center justify-center rounded-lg sm:min-h-[520px]">
               <img src={activeImage} alt={`${deal.title} image ${activeIndex + 1}`} className="max-h-[650px] w-full object-contain" />
             </div>
             {images.length > 1 ? (

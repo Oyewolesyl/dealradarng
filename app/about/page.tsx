@@ -30,7 +30,7 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto max-w-7xl">
           <p className="tag px-3 py-1 text-xs">About the rebuild</p>
           <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
-            Deal Radar NG is a buyer engine for digital products.
+            Deal Radar NG helps people compare digital products before they buy.
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 theme-muted">
             The platform helps Nigerians and Africans compare digital courses, remote work resources, relocation guides and professional skills before visiting the official marketplace page.

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, Search, ShoppingBag, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useState } from "react";
 import BrandLogo from "@/components/BrandLogo";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -21,21 +21,13 @@ export default function Navbar() {
   return (
     <header className="site-header sticky top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" onClick={closeMenu} className="flex min-w-0 items-center gap-3">
-          <div className="brand-logo-mark">
-            <BrandLogo priority className="object-contain object-center" />
-          </div>
-          <div className="min-w-0">
-            <p className="truncate text-lg font-black leading-none theme-text">Deal Radar</p>
-            <p className="mt-1 hidden text-[10px] font-black uppercase tracking-[0.22em] text-[#f45a1d] sm:block">
-              NG buyer engine
-            </p>
-          </div>
+        <Link href="/" onClick={closeMenu} className="relative h-20 w-28 shrink-0 sm:h-24 sm:w-32">
+          <BrandLogo priority className="object-contain object-left" />
         </Link>
 
-        <nav className="nav-pill hidden items-center gap-1 p-1 text-sm font-black lg:flex">
+        <nav className="hidden items-center gap-7 text-sm font-bold theme-muted lg:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="rounded-full px-4 py-2 transition hover:bg-white/10">
+            <Link key={link.href} href={link.href} className="transition hover:text-[#f45a1d]">
               {link.label}
             </Link>
           ))}
@@ -46,10 +38,6 @@ export default function Navbar() {
           <Link href="/deals" className="cta-secondary px-4 py-3 text-sm">
             <Search size={16} />
             Scan
-          </Link>
-          <Link href="/signup" className="cta-primary px-4 py-3 text-sm">
-            <ShoppingBag size={16} />
-            Join
           </Link>
         </div>
 
@@ -83,8 +71,8 @@ export default function Navbar() {
               <Link href="/signin" onClick={closeMenu} className="cta-secondary px-4 py-3 text-sm">
                 Sign in
               </Link>
-              <Link href="/signup" onClick={closeMenu} className="cta-primary px-4 py-3 text-sm">
-                Join
+              <Link href="/deals" onClick={closeMenu} className="cta-primary px-4 py-3 text-sm">
+                Browse
               </Link>
             </div>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Search, SlidersHorizontal } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DealCard from "@/components/DealCard";
 import type { Deal } from "@/types/deal";
 
@@ -17,6 +17,25 @@ export default function DealFilters({
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
   const [platform, setPlatform] = useState("All");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const categoryParam = params.get("category");
+    const platformParam = params.get("platform");
+    const searchParam = params.get("q");
+
+    if (categoryParam && categories.includes(categoryParam)) {
+      setCategory(categoryParam);
+    }
+
+    if (platformParam && platforms.includes(platformParam)) {
+      setPlatform(platformParam);
+    }
+
+    if (searchParam) {
+      setQuery(searchParam);
+    }
+  }, [categories, platforms]);
 
   const filteredDeals = useMemo(() => {
     const search = query.trim().toLowerCase();
@@ -44,11 +63,11 @@ export default function DealFilters({
       <div className="surface mb-8 p-4 sm:p-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p className="tag px-3 py-1 text-[10px]">
+            <p className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-[#f45a1d]">
               <SlidersHorizontal size={14} />
-              Radar controls
+              Filters
             </p>
-            <h2 className="mt-4 text-3xl font-black theme-text">Search like a buyer, not a browser.</h2>
+            <h2 className="mt-4 text-3xl font-black theme-text">Find products faster.</h2>
           </div>
           <p className="text-sm font-bold theme-muted">
             {filteredDeals.length} of {deals.length} products visible

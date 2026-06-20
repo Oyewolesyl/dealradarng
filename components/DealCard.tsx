@@ -12,10 +12,10 @@ export default function DealCard({ deal }: { deal: Deal }) {
             alt={deal.title}
             className="max-h-full max-w-full object-contain transition duration-500 group-hover:scale-[1.04]"
           />
-          <div className="absolute left-4 top-4 rounded-full bg-black px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-white">
+          <div className="absolute left-4 top-4 rounded bg-black px-3 py-1 text-xs font-black uppercase tracking-[0.12em] text-white">
             {deal.platform}
           </div>
-          <div className="absolute bottom-4 right-4 rounded-full bg-white px-3 py-1 text-xs font-black text-black shadow">
+          <div className="absolute bottom-4 right-4 rounded bg-white px-3 py-1 text-xs font-black text-black shadow">
             {deal.priceNote}
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function DealCard({ deal }: { deal: Deal }) {
 
         <div className="mt-5 flex flex-wrap gap-2">
           {deal.bestFor.slice(0, 3).map((item) => (
-            <span key={item} className="rounded-full border theme-line bg-white/[0.04] px-3 py-1 text-[11px] font-bold theme-muted">
+            <span key={item} className="rounded border theme-line bg-white/[0.04] px-3 py-1 text-[11px] font-bold theme-muted">
               {item}
             </span>
           ))}

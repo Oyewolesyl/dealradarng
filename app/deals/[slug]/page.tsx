@@ -41,7 +41,7 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
             <div className="surface bg-white p-4">
-              <div className="product-media flex min-h-[430px] items-center justify-center rounded-[18px] p-4">
+              <div className="product-media flex min-h-[430px] items-center justify-center rounded-lg p-4">
                 <img src={deal.image} alt={deal.title} className="max-h-[560px] w-full object-contain" />
               </div>
             </div>
@@ -49,8 +49,8 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
             <div>
               <div className="flex flex-wrap gap-2">
                 <span className="tag px-3 py-1 text-xs">{deal.platform}</span>
-                <span className="rounded-full border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.category}</span>
-                <span className="rounded-full border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.priceNote}</span>
+                <span className="rounded border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.category}</span>
+                <span className="rounded border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.priceNote}</span>
               </div>
 
               <h1 className="mt-5 max-w-4xl text-4xl font-black leading-[0.98] theme-text sm:text-5xl lg:text-6xl">
@@ -74,7 +74,7 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
                   <p className="mt-3 text-xs font-black uppercase tracking-[0.16em] faint">Best fit</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {deal.bestFor.slice(0, 3).map((item) => (
-                      <span key={item} className="rounded-full border theme-line px-3 py-1 text-[11px] font-bold theme-muted">{item}</span>
+                      <span key={item} className="rounded border theme-line px-3 py-1 text-[11px] font-bold theme-muted">{item}</span>
                     ))}
                   </div>
                 </div>
