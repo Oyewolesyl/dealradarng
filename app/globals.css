@@ -35,10 +35,7 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 12% 0%, rgba(244, 90, 29, 0.18), transparent 30rem),
-    radial-gradient(circle at 90% 10%, rgba(0, 135, 78, 0.2), transparent 32rem),
-    var(--bg);
+  background: var(--bg);
   color: var(--fg);
   font-family: Arial, Helvetica, sans-serif;
   transition: background-color 180ms ease, color 180ms ease;
@@ -50,17 +47,11 @@ img { max-width: 100%; }
 
 .site-frame {
   min-height: 100vh;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background: var(--bg);
 }
 
 html[data-theme="light"] .site-frame {
-  background:
-    linear-gradient(90deg, rgba(16, 20, 17, 0.045) 1px, transparent 1px),
-    linear-gradient(rgba(16, 20, 17, 0.045) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background: var(--bg);
 }
 
 .site-header {
@@ -81,15 +72,6 @@ html[data-theme="light"] .site-frame {
 }
 
 .brand-logo-mark img { transform: none; }
-
-.nav-pill {
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--soft);
-  color: var(--muted);
-}
-
-.nav-pill:hover { color: var(--fg); border-color: rgba(244, 90, 29, 0.55); }
 
 .mode-button,
 .icon-button {
@@ -121,14 +103,7 @@ html[data-theme="light"] .site-frame {
 }
 
 .radar-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(115deg, transparent 0 37%, rgba(244, 90, 29, 0.2) 38%, transparent 40%),
-    linear-gradient(45deg, transparent 0 63%, rgba(0, 135, 78, 0.18) 64%, transparent 66%);
-  opacity: 0.9;
+  content: none;
 }
 
 .surface {
@@ -142,19 +117,6 @@ html[data-theme="light"] .site-frame {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: color-mix(in srgb, var(--panel) 90%, transparent);
-}
-
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid rgba(244, 90, 29, 0.36);
-  border-radius: 6px;
-  background: rgba(244, 90, 29, 0.1);
-  color: color-mix(in srgb, var(--orange) 72%, var(--fg));
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
 }
 
 .cta-primary {
@@ -234,10 +196,7 @@ html[data-theme="light"] .site-frame {
 .deal-rail::-webkit-scrollbar-thumb { background: rgba(244, 90, 29, 0.5); border-radius: 999px; }
 
 .brand-band {
-  background:
-    linear-gradient(135deg, rgba(244, 90, 29, 0.16), transparent 36%),
-    linear-gradient(45deg, transparent 0 58%, rgba(0, 135, 78, 0.16) 59%, transparent 61%),
-    var(--panel);
+  background: var(--panel);
 }
 
 .muted { color: var(--muted); }
@@ -260,10 +219,10 @@ html[data-theme="light"] .site-frame {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgba(244, 90, 29, 0.36);
-  border-radius: 6px;
-  background: rgba(244, 90, 29, 0.1);
-  color: color-mix(in srgb, var(--orange) 72%, var(--fg));
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--muted);
 }
 
 .brand-button {
@@ -283,38 +242,6 @@ html[data-theme="light"] .site-frame {
   border-radius: 8px;
   background: var(--soft);
   color: var(--fg);
-}
-
-.marquee {
-  display: flex;
-  width: max-content;
-  min-width: 100%;
-  gap: 1.25rem;
-  animation: marquee 26s linear infinite;
-}
-
-.marquee span {
-  white-space: nowrap;
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.marquee span::before {
-  content: "";
-  display: inline-block;
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-right: 0.75rem;
-  border-radius: 999px;
-  background: var(--green-bright);
-  box-shadow: 0 0 0 4px rgba(0, 135, 78, 0.14);
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
 }
 
 @media (max-width: 640px) {

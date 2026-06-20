@@ -44,7 +44,7 @@ export default function SoftwarePage() {
               <p className="mt-4 leading-8 text-black/65">{section.body}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {section.examples.map((example) => (
-                  <span key={example} className="rounded-full border border-[#10B981]/20 bg-[#10B981]/10 px-3 py-1 text-xs font-black text-[#047857]">
+                  <span key={example} className="rounded border border-black/10 bg-black/[0.03] px-3 py-1 text-xs font-black text-black/65">
                     {example}
                   </span>
                 ))}

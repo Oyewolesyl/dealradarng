@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Deal } from "@/types/deal";
 import { API_BASE_URL } from "@/lib/api";
 
@@ -26,11 +26,7 @@ export default function ProductCTA({ deal }: { deal: Deal }) {
 
   return (
     <div className="brand-band surface p-6 sm:p-7">
-      <p className="tag px-3 py-1 text-[10px]">
-        <ShieldCheck size={14} />
-        Official checkout
-      </p>
-      <h2 className="mt-4 text-2xl font-black theme-text sm:text-3xl">
+      <h2 className="text-2xl font-black theme-text sm:text-3xl">
         Continue on {deal.platform}
       </h2>
       <p className="mt-3 text-sm leading-6 theme-muted">

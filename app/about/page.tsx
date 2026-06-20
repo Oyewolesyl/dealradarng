@@ -13,7 +13,7 @@ const pillars = [
   },
   {
     icon: ExternalLink,
-    title: "Official checkout",
+    title: "Official product pages",
     text: "Deal Radar does not pretend to be the merchant. It sends buyers to the official product page.",
   },
   {
@@ -28,8 +28,7 @@ export default function AboutPage() {
     <main className="radar-page">
       <section className="radar-hero px-5 py-14 sm:px-6 lg:py-20">
         <div className="relative z-10 mx-auto max-w-7xl">
-          <p className="tag px-3 py-1 text-xs">About the rebuild</p>
-          <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
+          <h1 className="max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
             Deal Radar NG helps people compare digital products before they buy.
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 theme-muted">

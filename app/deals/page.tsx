@@ -8,11 +8,7 @@ export default function DealsPage() {
       <section className="radar-hero px-5 py-14 sm:px-6 lg:py-20">
         <div className="relative z-10 mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.45fr] lg:items-end">
           <div>
-            <p className="tag px-3 py-1 text-xs">
-              <ShoppingBag size={15} />
-              Marketplace
-            </p>
-            <h1 className="mt-5 max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
+            <h1 className="max-w-5xl text-5xl font-black leading-[0.95] theme-text sm:text-6xl">
               Scan the full product floor.
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 theme-muted">

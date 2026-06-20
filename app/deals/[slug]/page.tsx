@@ -48,7 +48,7 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
 
             <div>
               <div className="flex flex-wrap gap-2">
-                <span className="tag px-3 py-1 text-xs">{deal.platform}</span>
+                <span className="rounded border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.platform}</span>
                 <span className="rounded border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.category}</span>
                 <span className="rounded border theme-line px-3 py-1 text-xs font-black theme-muted">{deal.priceNote}</span>
               </div>
@@ -91,8 +91,7 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
       <section className="px-5 py-14 sm:px-6 lg:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="tag px-3 py-1 text-xs">Radar notes</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight theme-text sm:text-5xl">
+            <h2 className="text-4xl font-black leading-tight theme-text sm:text-5xl">
               Why this product made the shelf.
             </h2>
             <p className="mt-5 text-base font-bold leading-8 theme-muted">{deal.whyPick}</p>
@@ -122,8 +121,7 @@ export default async function DealDetailPage({ params }: { params: Promise<{ slu
       {relatedDeals.length ? (
         <section className="px-5 py-14 sm:px-6 lg:py-20">
           <div className="mx-auto max-w-7xl">
-            <p className="tag px-3 py-1 text-xs">Similar products</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight theme-text sm:text-5xl">
+            <h2 className="text-4xl font-black leading-tight theme-text sm:text-5xl">
               Keep comparing before you click.
             </h2>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

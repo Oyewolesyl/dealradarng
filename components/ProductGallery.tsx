@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Deal } from "@/types/deal";
 
@@ -23,11 +23,7 @@ export default function ProductGallery({ deal }: { deal: Deal }) {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="tag px-3 py-1 text-xs">
-              <Images size={15} />
-              Product visuals
-            </p>
-            <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight theme-text sm:text-5xl">
+            <h2 className="max-w-3xl text-4xl font-black leading-tight theme-text sm:text-5xl">
               Inspect the offer before checkout.
             </h2>
           </div>
