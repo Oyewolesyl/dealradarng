@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <header className="site-header sticky top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" onClick={closeMenu} className="relative h-20 w-28 shrink-0 sm:h-24 sm:w-32">
+        <Link href="/" onClick={closeMenu} className="relative h-[92px] w-[124px] shrink-0 sm:h-[108px] sm:w-[140px]">
           <BrandLogo priority className="object-contain object-left" />
         </Link>
 
